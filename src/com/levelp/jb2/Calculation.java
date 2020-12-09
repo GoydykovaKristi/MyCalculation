@@ -50,12 +50,10 @@ public class Calculation {
                             System.out.println("Ваше число меньше нуля. " +
                                     "Римская система счисления является непозиционной системой счисления и в ней отсутствуют отрицательные числа");
                         }
-                     /*
-                     Расчет результата с помощью статического метода raschetResult класса Calculation
-                     */
+
                     }else
                         try {
-                            //Исключение, если пользователь вввел римское число потом арабское в одном примере
+                            //Исключение, если пользователь вввел римское число  и потом арабское в одном примере
                             throw new MultiNumberException("Калькулятор умеет работать либо только с арабскими, " +
                                     "либо только с римскими цифрами одновременно");
                         }catch (MultiNumberException e) {
@@ -71,7 +69,7 @@ public class Calculation {
 
                     if (primerSimvols[2].contains("I") || primerSimvols[2].contains("V") || primerSimvols[2].contains("X")) {
                         try {
-                            //Исключение, если пользователь вввел арабское число  потом римское в одном примере
+                            //Исключение, если пользователь вввел арабское число и потом римское в одном примере
                             throw new MultiNumberException("Калькулятор умеет работать либо только с арабскими, либо только с римскими цифрами одновременно");
                         } catch (MultiNumberException e) {
                             e.printStackTrace();
@@ -83,7 +81,6 @@ public class Calculation {
                         int result = raschetResult(num1, operation, num2); // Расчет результата
                         System.out.println(result);
                     }
-
                 }
 
                 System.out.println("Введите пример. Для выхода из программы - напишите \"end\"!");
@@ -110,7 +107,7 @@ public class Calculation {
     }
 
     public static String[] splitStr(String str) throws IOException {
-        if (str.isEmpty()) throw new IOException("Вы ничего не ввели. Попробуйте еще раз!");
+        if (str.isEmpty()) throw new IOException("Вы ничего не ввели!");
         String[] strPoSimvolam = str.split(" ");
         if(strPoSimvolam.length != 3) throw new IndexOutOfBoundsException("Для примера нужны 3 составляющих: " +
                 "первое число, знак, второе число " +
